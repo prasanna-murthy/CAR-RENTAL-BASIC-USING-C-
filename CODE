@@ -1,0 +1,175 @@
+#include <stdio.h>
+void payment(char ch[100], int c, char f[100], int g, int a) {
+  printf("                             RIDE CONFIRMED\n");
+  printf("                       *************PAYMENT DETAILS**************\n");
+  printf("                              NAME:%s\n", ch);
+  printf("                              MOBILE NUMBER:%Ld\n", c);
+  printf("                              EMAIL ID %s\n", f);
+  printf("                              ESTIMATED AMOUNT:%d\n", g * a);
+  printf("                              ENJOY YOUR RIDE\n");
+  printf(
+      "                       *************THANKS FOR BOOKING**************\n");
+}
+int main(void) {
+  int triptype, cartype, cartype1, n = 0, duration = 0, wishtype;
+  ;
+  long long mobileno;
+  char name[100], email[100];
+  printf("\n");
+  printf("******************WELOCME TO CAR RENTAL "
+         "SYSTEM*****************************\n\n");
+  printf("\n");
+  printf("     ##################REGISTER "
+         "YOURSELF###############################\n");
+  printf("\n");
+  printf("ENTER THE NAME:");
+  scanf("%[^\n]s", name);
+mobile:
+  printf("ENTER THE MOBILE NUMBER:");
+  scanf("%ld", &mobileno);
+  int a = mobileno;
+  while (a != 0) {
+    a /= 10;
+    n++;
+  }
+  if (n == 10) {
+    goto details;
+  } else {
+    printf("!!!!!ENTER VALID MOBILE NUMBER!!!!!!!!!!!\n");
+    n = 0;
+    goto mobile;
+  }
+details:
+  printf("ENTER THE EMAIL ID:");
+  scanf("%s", email);
+  printf("ENTER THE DURATION(in hours):");
+  scanf("%d", &duration);
+type:
+  printf("CHOOSE THE CITY TYPE\n");
+  printf("1.INSIDE THE CITY\n");
+  printf("2.OUTSIDE THE CITY\n");
+  printf("ENTER THE TYPE:\n");
+  scanf("%d", &triptype);
+  if (triptype == 1) {
+
+  cars:
+    printf(
+        "        ***********************************************         \n");
+    printf("     1.VOLVO      AMOUNT PER HOUR=250rupees      MILEAGE=11/Km\n");
+    printf("     2.HYUNDAI    AMOUNT PER HOUR=250rupees      MILEAGE=13/Km\n");
+    printf("     3.BMW        AMOUNT PER HOUR=400rupees      MILEAGE=10/Km\n");
+    printf("     4.AUDI       AMOUNT PER HOUR=300rupees      MILEAGE=13/Km\n");
+    printf(
+        "        ***********************************************         \n");
+    printf("                    ENTER THE CAR TYPE:\n");
+    scanf("%d", &cartype);
+    switch (cartype) {
+    case 1:
+      printf("YOU HAVE CHOOSEN VOLVO\n");
+      printf("   1.ARE YOU WISH TO CONTINUE\n");
+      printf("   2.GO TO AVIALBLE CARS\n");
+      scanf("%d", &wishtype);
+      if (wishtype == 1) {
+        printf(
+            "                          *************************************\n");
+        printf("                               CAR NAME=VOLVO\n");
+        payment(name, mobileno, email, duration, 250);
+      } else {
+        goto cars;
+      }
+      break;
+    case 2:
+      printf("YOU HAVE CHOOSEN HYUNDAI\n");
+      printf("     1.ARE YOU WISH TO CONTINUE\n");
+      printf("     2.ARE YOU WISH TO CANCEL\n");
+      scanf("%d", &wishtype);
+      if (wishtype == 1) {
+        printf("                       *************************************\n");
+        printf("                               CAR NAME=HYUNDAI\n");
+        payment(name, mobileno, email, duration, 250);
+      } else {
+        goto cars;
+      }
+      break;
+    case 3:
+      printf("YOU HAVE CHOOSEN BMW\n");
+      printf("   1.ARE YOU WISH TO CONTINUE\n");
+      printf("   2.ARE YOU WISH TO CANCEL\n");
+      scanf("%d", &wishtype);
+      if (wishtype == 1) {
+        printf("                 ************************************\n");
+        printf("                        CAR NAME=BMW\n");
+        payment(name, mobileno, email, duration, 400);
+      } else {
+        goto cars;
+      }
+      break;
+    case 4:
+      printf("YOU HAVE CHOOSEN AUDI\n");
+      printf("   1.ARE YOU WISH TO CONTINUE\n");
+      printf("   2.ARE YOU WISH TO CANCEL\n");
+      scanf("%d", &wishtype);
+      if (wishtype == 1) {
+        printf("                      *************************************\n");
+        printf("                        CAR NAME=AUDI\n");
+        payment(name, mobileno, email, duration, 300);
+      } else {
+        goto cars;
+      }
+      break;
+    }
+  }
+  if (triptype == 2) {
+  cars1:
+    printf("1.SKODA       AMOUNT PER HOUR=2500rupees   MILEAGE=11/km\n");
+    printf("2.ROLLS ROYCE AMOUNT PER HOUR=25000rupees MILEAGE=13/Km\n");
+    printf("3.THAR        AMOUNT PER HOUR=4000rupees  MILEAGE=10/Km\n");
+    printf("CHOOSE THE CAR\n");
+    scanf("%d", &cartype1);
+    switch (cartype1) {
+    case 1:
+      printf("YOU HAVE CHOOSEN SKODA\n");
+      printf("   1.ARE YOU WISH TO CONTINUE\n");
+      printf("   2.ARE YOU WISH TO CANCEL\n");
+      scanf("%d", &wishtype);
+      if (wishtype == 1) {
+        printf("                 ************************************\n");
+        printf("                        CAR NAME=SKODA\n");
+        payment(name, mobileno, email, duration, 2500);
+      } else {
+        goto cars1;
+      }
+      break;
+    case 2:
+      printf("YOU HAVE CHOOSEN ROLLS ROYCE\n");
+      printf("   1.ARE YOU WISH TO CONTINUE\n");
+      printf("   2.ARE YOU WISH TO CANCEL\n");
+      scanf("%d", &wishtype);
+      if (wishtype == 1) {
+        printf("                 ************************************\n");
+        printf("                        CAR NAME=ROLLS ROYCE\n");
+        payment(name, mobileno, email, duration, 25000);
+      } else {
+        goto cars1;
+      }
+      break;
+    case 3:
+      printf("YOU HAVE CHOOSEN THAR\n");
+      printf("    1.ARE YOU WISH TO CONTINUE\n");
+      printf("    2.ARE YOU WISH TO CANCEL\n");
+      scanf("%d", &wishtype);
+      if (wishtype == 1) {
+        printf("                      ************************************\n");
+        printf("                            CAR NAME=THAR\n");
+        payment(name, mobileno, email, duration, 4000);
+      } else {
+        goto cars1;
+      }
+      break;
+    }
+  }
+  if (triptype == 3) {
+    printf("CHOOSE A VALID TRIP TYPE\n");
+    goto type;
+  }
+}
